@@ -1,7 +1,5 @@
 """Module for servants implementations."""
 
-from typing import List
-
 import Ice
 
 import IceDrive
@@ -10,13 +8,13 @@ import IceDrive
 class Directory(IceDrive.Directory):
     """Implementation of the IceDrive.Directory interface."""
 
-    def getPath(self, current: Ice.Current = None) -> str:
-        """Return the path for the directory within the user space."""
-
     def getParent(self, current: Ice.Current = None) -> IceDrive.DirectoryPrx:
         """Return the proxy to the parent directory, if it exists. None in other case."""
 
-    def getChilds(self, current: Ice.Current = None) -> List[str]:
+    def getPath(self, current: Ice.Current = None) -> str:
+        """Return the path for the directory within the user space."""
+
+    def getChilds(self, current: Ice.Current = None) -> list[str]:
         """Return a list of names of the directories contained in the directory."""
 
     def getChild(self, name: str, current: Ice.Current = None) -> IceDrive.DirectoryPrx:
@@ -30,7 +28,7 @@ class Directory(IceDrive.Directory):
     def removeChild(self, name: str, current: Ice.Current = None) -> None:
         """Remove the child directory with the given name if exists."""
 
-    def getFiles(self, current: Ice.Current = None) -> List[str]:
+    def getFiles(self, current: Ice.Current = None) -> list[str]:
         """Return a list of the files linked inside the current directory."""
 
     def getBlobId(self, filename: str, current: Ice.Current = None) -> str:
